@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'choose_subjects.dart';
 
 void main() => runApp(MyApp());
 
@@ -65,7 +66,10 @@ class Login extends StatelessWidget {
                                 child: Text("Login", style: TextStyle(color: Colors.white),),
                                 color: Colors.green,
                                 padding: EdgeInsets.only(top: 15, bottom: 15, left: 70, right: 70),
-                                onPressed: () {}
+                                onPressed: () {
+                                  Route route = MaterialPageRoute(builder: (context) => ChooseSubjects());
+                                  Navigator.push(context, route);
+                                }
                             )
                         ),
                         Container(
@@ -120,5 +124,4 @@ class Login extends StatelessWidget {
       }
     );
   }
-
 }
