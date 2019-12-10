@@ -4,7 +4,7 @@ A demo application as the example used in Flutter Study Jam at SMIU Karachi.
 <div align="center">
   <sub>Built with ❤︎ by
   <a href="https://twitter.com/WajahatKarim">Wajahat Karim</a> and
-  <a href="https://github.com/wajahatkarim3/EasyFlipViewPager/graphs/contributors">
+  <a href="https://github.com/wajahatkarim3/education_flutter/graphs/contributors">
     contributors
   </a>
 </div>
