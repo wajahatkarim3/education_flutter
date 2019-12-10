@@ -11,7 +11,7 @@ A demo application as the example used in Flutter Study Jam at SMIU Karachi.
 <br/>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/wajahatkarim3/education_flutter/master/EduLogin.png?token=ACDU2MIY2NQYHWWU3RZV6O2556WCM" width="280px" /> <img src="https://raw.githubusercontent.com/wajahatkarim3/education_flutter/master/ChooseSubjects.png?token=ACDU2MIDHWXZT4AREEJOMI2556WFS" width="280px" /> 
+  <img src="https://github.com/wajahatkarim3/education_flutter/blob/master/EduLogin.png" width="280px" /> <img src="https://github.com/wajahatkarim3/education_flutter/blob/master/ChooseSubjects.png" width="280px" /> 
 </div>
         
 <br/>
