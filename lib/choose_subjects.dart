@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 
-class ChooseSubjects extends StatelessWidget {
+class ChooseSubjects extends StatefulWidget {
+
+  @override
+  _ChooseSubjectsState createState() {
+    return _ChooseSubjectsState();
+  }
+}
+
+class _ChooseSubjectsState extends State<ChooseSubjects> {
+
+  List<SubjectItem> subjectsList = [
+    SubjectItem(true, "Chemistry", "6 Months", 30),
+    SubjectItem(false, "Mathematics", "3 Months", 50),
+    SubjectItem(false, "Physics", "1 Months", 20),
+    SubjectItem(true, "English", "6 Months", 10),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +28,7 @@ class ChooseSubjects extends StatelessWidget {
         child: ListView.builder(
             itemCount: subjectsList.length,
             itemBuilder: (context, position) {
-              return createSubjectCard(subjectsList.elementAt(position));
+              return createSubjectCard(subjectsList.elementAt(position), position);
             }
         ),
       ),
@@ -28,91 +44,89 @@ class ChooseSubjects extends StatelessWidget {
     );
   }
 
-  Container createSubjectCard(SubjectItem subjectItem)
+  Container createSubjectCard(SubjectItem subjectItem, int position)
   {
     return Container(
       child: Card(
-        margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-        child: Container(
-          padding: EdgeInsets.only(top: 10, bottom: 10, right: 10),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Checkbox(
-                  activeColor: Colors.green,
-                  value: subjectItem.isChecked,
-                  onChanged: (v) { }
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    subjectItem.subjectName,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text(
-                      subjectItem.duration,
+          margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          child: Container(
+            padding: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Checkbox(
+                    activeColor: Colors.green,
+                    value: subjectItem.isChecked,
+                    onChanged: (v) {
+                      setState(() {
+                        subjectsList.elementAt(position).isChecked = v;
+                      });
+                    }
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      subjectItem.subjectName,
                       style: TextStyle(
-                          color: Colors.black38,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16
                       ),
                     ),
-                  )
-                ],
-              ),
-              Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "\$ " + subjectItem.price.toString(),
-                          style: TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20
-                          ),
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: Text(
+                        subjectItem.duration,
+                        style: TextStyle(
+                            color: Colors.black38,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14
                         ),
-                        Container(
-                          padding: EdgeInsets.only(top: 5),
-                          child: Text(
-                            "per month",
+                      ),
+                    )
+                  ],
+                ),
+                Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "\$ " + subjectItem.price.toString(),
                             style: TextStyle(
-                                color: Colors.black38,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 14
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  )
-              ),
-            ],
-          ),
-        )
+                          Container(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              "per month",
+                              style: TextStyle(
+                                  color: Colors.black38,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 14
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                ),
+              ],
+            ),
+          )
       ),
     );
   }
-}
 
-final List<SubjectItem> subjectsList = [
-  SubjectItem(true, "Chemistry", "6 Months", 30),
-  SubjectItem(false, "Mathematics", "3 Months", 50),
-  SubjectItem(false, "Physics", "1 Months", 20),
-  SubjectItem(true, "English", "6 Months", 10),
-];
+}
 
 class SubjectItem {
   bool isChecked;
