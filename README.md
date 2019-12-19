@@ -16,6 +16,12 @@ A demo application as the example used in Flutter Study Jam at SMIU Karachi.
         
 <br/>
 
+## 📖 Full Talk Video
+[![Talk Video](https://img.youtube.com/vi/hHSBF-ggKt4/0.jpg)](https://www.youtube.com/watch?v=hHSBF-ggKt4)
+
+## 📄 Talk Slides
+Available on SpeakerDeck here: https://speakerdeck.com/wajahatkarim3/flying-with-flutter-talk-at-smiu-karachiAd
+
 ## 👨 Developed By
 
 ```
